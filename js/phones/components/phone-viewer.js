@@ -1,4 +1,6 @@
 
+import PhoneCatalog from './phone-catalog.js'
+
 export default class PhoneViewer {
     constructor({ element }) {
 
