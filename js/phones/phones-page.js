@@ -1,6 +1,6 @@
 
-import PhoneCatalog from './components/phone-catalog.js'
-import PhoneViewer from './components/phone-viewer.js'
+import PhoneCatalog from './components/phone-catalog.js';
+import PhoneViewer from './components/phone-viewer.js';
 
 export default class PhonesPage {
     constructor({ element }) {
