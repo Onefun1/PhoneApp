@@ -14,6 +14,13 @@ export default class PhonesPage {
 
             element: document.querySelector('[data-components="phone-catalog"]'),
             phones: PhoneService.getAll(),
+            
+      onPhoneSelected: (phoneId) => {
+        const phoneDetails = PhoneService.getById(phoneId);
+
+        this._catalog.hide();
+        this._viewer.show(phoneDetails);
+      },
         });
 
         this._viewer = new PhoneViewer({
