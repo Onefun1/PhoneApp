@@ -12,7 +12,7 @@ export default class PhonesPage {
 
         this._catalog = new PhoneCatalog({
 
-            element: document.querySelector('[data-component="phone-catalog"]'),
+            element: document.querySelector('[data-components="phone-catalog"]'),
             phones: PhoneService.getAll(),
         });
 
