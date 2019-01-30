@@ -1,14 +1,12 @@
+import Component from '../../component.js';
 
-export default class PhoneViewer {
-    constructor({ element }) {
-
-        this._element = element;
-
-    }
+export default class PhoneViewer extends Component {
+    
 
     show(phoneDetails) {
       this._phoneDetails = phoneDetails;
-      this._element.hidden = false;
+      
+        super.show();
 
         this._render();
 
