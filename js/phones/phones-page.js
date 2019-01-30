@@ -8,6 +8,12 @@ export default class PhonesPage {
     this._element = element;
     this._render();
 
+    this._initCatalog();
+    this._initViewer();
+  }
+
+  _initCatalog() {
+
     this._catalog = new PhoneCatalog({
 
       element: document.querySelector('[data-component="phone-catalog"]'),
@@ -16,6 +22,7 @@ export default class PhonesPage {
 
     this._catalog.subscribe(
         'phone-selected',
+
         (phoneId) => {
           const phoneDetails = PhoneService.getById(phoneId);
   
@@ -23,7 +30,9 @@ export default class PhonesPage {
           this._viewer.show(phoneDetails);
         }
         );
-    
+    }
+   
+    _initViewer() {
         this._viewer = new PhoneViewer({
           element: document.querySelector('[data-component="phone-viewer"]'),
         });
@@ -33,8 +42,6 @@ export default class PhonesPage {
             this._catalog.show();
           });
         }
-      
-      
       
       
         _render() {
