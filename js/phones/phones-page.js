@@ -1,71 +1,73 @@
-
 import PhoneCatalog from './components/phone-catalog.js';
 import PhoneViewer from './components/phone-viewer.js';
 import PhoneService from './services/phone-service.js';
 
-
 export default class PhonesPage {
-    constructor({ element }) {
+  constructor({ element }) {
+    this._element = element;
 
-        this._element = element;
+    this._render();
 
-        this._render();
+    this._catalog = new PhoneCatalog({
 
-        this._catalog = new PhoneCatalog({
+      element: document.querySelector('[data-component="phone-catalog"]'),
+      phones: PhoneService.getAll(),
 
-            element: document.querySelector('[data-components="phone-catalog"]'),
-            phones: PhoneService.getAll(),
-            
       onPhoneSelected: (phoneId) => {
         const phoneDetails = PhoneService.getById(phoneId);
 
         this._catalog.hide();
-        this._viewer.show(phoneDetails);
+                this._viewer.show(phoneDetails);
       },
-        });
+    });
 
-        this._viewer = new PhoneViewer({
-            element: document.querySelector('[data-components="phone-viewer"]')
-        });
-    }
+    this._viewer = new PhoneViewer({
 
-    _render(){
-        this._element.innerHTML = `
-        <div class="row">
+        element: document.querySelector('[data-component="phone-viewer"]'),
 
-      <!--Sidebar-->
-      <div class="col-md-2">
-        <section>
-          <p>
-            Search:
-            <input>
-          </p>
+      onBack: () => {
+        this._viewer.hide();
+        this._catalog.show();
+      }
+    });
+  }
 
-          <p>
-            Sort by:
-            <select>
-              <option value="name">Alphabetical</option>
-              <option value="age">Newest</option>
-            </select>
-          </p>
-        </section>
-
-        <section>
-          <p>Shopping Cart</p>
-          <ul>
-            <li>Phone 1</li>
-            <li>Phone 2</li>
-            <li>Phone 3</li>
-          </ul>
-        </section>
+  _render() {
+    this._element.innerHTML = `
+      <div class="row">
+        <!--Sidebar-->
+        <div class="col-md-2">
+          <section>
+            <p>
+              Search:
+              <input>
+            </p>
+    
+            <p>
+              Sort by:
+              <select>
+                <option value="name">Alphabetical</option>
+                <option value="age">Newest</option>
+              </select>
+            </p>
+          </section>
+    
+          <section>
+            <p>Shopping Cart</p>
+            <ul>
+              <li>Phone 1</li>
+              <li>Phone 2</li>
+              <li>Phone 3</li>
+            </ul>
+          </section>
+        </div>
+    
+        <!--Main content-->
+        <div class="col-md-10">
+          <div data-component="phone-catalog"></div>
+          <div data-component="phone-viewer" hidden></div>
+        </div>
       </div>
-
-      <!--Main content-->
-      <div class="col-md-10">
-        <div data-components="phone-catalog"></div>
-        <div data-components="phone-viewer" hidden></div>
-      </div>
-    </div>
-        `;
-    }
+    `;
+  }
 }
