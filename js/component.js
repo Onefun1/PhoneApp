@@ -24,18 +24,24 @@ export default class Component {
           callback(event);
         });
       }
-      
+
       subscribe(eventName, callback) {
-        this._callbackMap[eventName] = callback;
+        if (!this._callbackMap[eventName]) {
+      this._callbackMap[eventName] = [];
+    }
+
+    this._callbackMap[eventName].push(callback);
       }
     
       emit(eventName, data) {
-        const callback = this._callbackMap[eventName];
+        const eventCallbacks = this._callbackMap[eventName];
     
-        if (!callback) {
+         if (!eventCallbacks) {
           return;
         }
     
-        callback(data);
+        eventCallbacks.forEach(callback => {
+            callback(data);
+          });
       }
     }
