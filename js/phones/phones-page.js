@@ -17,19 +17,19 @@ export default class PhonesPage {
   }
 
   _initCatalog() {
-
     this._catalog = new PhoneCatalog({
-
       element: document.querySelector('[data-component="phone-catalog"]'),
       phones: PhoneService.getAll(),
     });
-
     this._catalog.subscribe('phone-selected', (phoneId) => {
-        const phoneDetails = PhoneService.getById(phoneId);
-        
-        this._catalog.hide();
-        this._viewer.show(phoneDetails);
-      });
+      const phoneDetails = PhoneService.getById(phoneId);
+      this._catalog.hide();
+      this._viewer.show(phoneDetails);
+    });
+
+    this._catalog.subscribe('phone-added', (phoneId) => {
+      this._cart.add(phoneId);
+    });
     }
    
     _initViewer() {
