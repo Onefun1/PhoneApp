@@ -35,23 +35,38 @@ export default class PhonesPage {
     _initViewer() {
         this._viewer = new PhoneViewer({
           element: document.querySelector('[data-component="phone-viewer"]'),
-          render() {
-            return `
-              
-            `;
-          }
-        });
+       });
 
         this._viewer.subscribe('back', () => {
             this._viewer.hide();
             this._catalog.show();
           });
+          this._viewer.subscribe('added', (phoneId) => {
+            this._cart.addItem(phoneId);
+          })
         }
 
         _initShoppingCart() {
             this._cart = new ShoppingCart({
               element: document.querySelector('[data-component="shopping-cart"]'),
             });
+
+            this._cart.add('qweqweqwe');
+            this._cart.add('qweqweqwe');
+            this._cart.add('qweqweqwe');
+            this._cart.add('qweqweqwe');
+        
+        
+            setTimeout(() => {
+              this._cart.remove('qweqweqwe');
+            }, 3000);
+        
+        
+            setTimeout(() => {
+              this._cart.remove('qweqweqwe');
+              this._cart.remove('qweqweqwe');
+              this._cart.remove('qweqweqwe');
+            }, 6000);
           }
         
           _initFilter() {

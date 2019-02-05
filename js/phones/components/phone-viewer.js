@@ -15,6 +15,9 @@ export default class PhoneViewer extends Component {
 
       largeImage.src = smallImage.src;
     });
+    this.on('click', 'add-button', () => {
+      this.emit('added', this._phoneDetails.id)
+    });
   }
 
   show(phoneDetails) {
