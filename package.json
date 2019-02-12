@@ -1,0 +1,24 @@
+{
+  "name": "phoneapp",
+  "version": "1.0.0",
+  "description": "- [Repository PhoneApp Branch - gh-pages](https://github.com/Onefun1/PhoneApp/tree/gh-pages)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Hello\"",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Onefun1/PhoneApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Onefun1/PhoneApp/issues"
+  },
+  "homepage": "https://github.com/Onefun1/PhoneApp#readme",
+  "dependencies": {
+    "eslint": "^5.13.0",
+    "node-static": "^0.7.11"
+  }
+}
