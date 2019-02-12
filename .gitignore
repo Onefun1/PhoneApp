@@ -1,2 +1,7 @@
 .idea
 emmit.html
+node_modules
+test.js
+test2.js
+package-lock.json
+package.json
