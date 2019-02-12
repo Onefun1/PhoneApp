@@ -17,7 +17,7 @@
     "url": "https://github.com/Onefun1/PhoneApp/issues"
   },
   "homepage": "https://github.com/Onefun1/PhoneApp#readme",
-  "dependencies": {
+  "devDependencies": {
     "eslint": "^5.13.0",
     "node-static": "^0.7.11"
   }
