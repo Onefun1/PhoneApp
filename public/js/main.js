@@ -1,6 +1,6 @@
+import PhonesPage from './phones/phones-page';
 
-import PhonesPage from './phones/phones-page.js';
-
-let currentPage = new PhonesPage({
-    element: document.querySelector('[data-page-container]')
+// eslint-disable-next-line no-unused-vars
+const currentPage = new PhonesPage({
+  element: document.querySelector('[data-page-container]'),
 });
