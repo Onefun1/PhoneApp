@@ -4,6 +4,7 @@
   "description": "- [Repository PhoneApp Branch - gh-pages](https://github.com/Onefun1/PhoneApp/tree/gh-pages)",
   "main": "server.js",
   "scripts": {
+    "lint": "eslint --ext .js ./public/js --fix",
     "test": "echo \"Hello\"",
     "start": "node server.js"
   },
@@ -19,6 +20,8 @@
   "homepage": "https://github.com/Onefun1/PhoneApp#readme",
   "devDependencies": {
     "eslint": "^5.13.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
     "node-static": "^0.7.11"
   }
 }

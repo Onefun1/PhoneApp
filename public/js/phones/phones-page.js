@@ -1,11 +1,10 @@
-import PhoneCatalog from './components/phone-catalog.js';
-import PhoneViewer from './components/phone-viewer.js';
-import Filter from './components/filter.js';
-import ShoppingCart from './components/shopping-cart.js';
-import PhoneService from './services/phone-service.js';
+import PhoneCatalog from './components/phone-catalog';
+import PhoneViewer from './components/phone-viewer';
+import Filter from './components/filter';
+import ShoppingCart from './components/shopping-cart';
+import PhoneService from './services/phone-service';
 
 export default class PhonesPage {
-
   constructor({ element }) {
     this._element = element;
     this._render();
@@ -30,40 +29,38 @@ export default class PhonesPage {
     this._catalog.subscribe('phone-added', (phoneId) => {
       this._cart.add(phoneId);
     });
-    }
-   
-    _initViewer() {
-        this._viewer = new PhoneViewer({
-          element: document.querySelector('[data-component="phone-viewer"]'),
-       });
+  }
 
-        this._viewer.subscribe('back', () => {
-            this._viewer.hide();
-            this._catalog.show();
-          });
+  _initViewer() {
+    this._viewer = new PhoneViewer({
+      element: document.querySelector('[data-component="phone-viewer"]'),
+    });
 
-          this._viewer.subscribe('add', (phoneId) => {
-            this._cart.add(phoneId);
-          });
-        }
+    this._viewer.subscribe('back', () => {
+      this._viewer.hide();
+      this._catalog.show();
+    });
 
-        _initShoppingCart() {
-            this._cart = new ShoppingCart({
-              element: document.querySelector('[data-component="shopping-cart"]'),
-            });
+    this._viewer.subscribe('add', (phoneId) => {
+      this._cart.add(phoneId);
+    });
+  }
 
-            
-          }
-        
-          _initFilter() {
-            this._filter = new Filter({
-              element: document.querySelector('[data-component="filter"]'),
-            });
-          }
-      
-      
-        _render() {
-          this._element.innerHTML = `
+  _initShoppingCart() {
+    this._cart = new ShoppingCart({
+      element: document.querySelector('[data-component="shopping-cart"]'),
+    });
+  }
+
+  _initFilter() {
+    this._filter = new Filter({
+      element: document.querySelector('[data-component="filter"]'),
+    });
+  }
+
+
+  _render() {
+    this._element.innerHTML = `
             <div class="row">
             <!--Sidebar-->
             <div class="col-md-2" data-element="sidebar" ref="(element) => { this._thumb = element }">
@@ -83,5 +80,5 @@ export default class PhonesPage {
             </div>
           </div>
         `;
-      }
-    }
+  }
+}
