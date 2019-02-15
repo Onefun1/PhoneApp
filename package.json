@@ -4,7 +4,7 @@
   "description": "- [Repository PhoneApp Branch - gh-pages](https://github.com/Onefun1/PhoneApp/tree/gh-pages)",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Hello\"",
+    "test": "echo \"Hello World\"",
     "start": "node server.js"
   },
   "repository": {
