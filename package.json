@@ -4,8 +4,11 @@
   "description": "- [Repository PhoneApp Branch - gh-pages](https://github.com/Onefun1/PhoneApp/tree/gh-pages)",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Hello World\"",
-    "start": "node server.js"
+    
+    "lint": "eslint --ext .js ./public/js --fix",
+    "test": "echo \"Hello\"",
+    "start": "node server.js",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -17,8 +20,12 @@
     "url": "https://github.com/Onefun1/PhoneApp/issues"
   },
   "homepage": "https://github.com/Onefun1/PhoneApp#readme",
-  "dependencies": {
+  "devDependencies": {
     "eslint": "^5.13.0",
-    "node-static": "^0.7.11"
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "node-static": "^0.7.11",
+    "webpack": "^4.29.4",
+    "webpack-cli": "^3.2.3"
   }
 }

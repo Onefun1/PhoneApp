@@ -1,8 +1,7 @@
-import Component from '../../component.js';
+import Component from '../../component';
 
 export default class PhoneViewer extends Component {
   constructor({ element }) {
-
     super({ element });
 
     this.on('click', 'back-button', () => {
@@ -19,18 +18,20 @@ export default class PhoneViewer extends Component {
       largeImage.src = smallImage.src;
     });
   }
+
   show(phoneDetails) {
     this._phoneDetails = phoneDetails;
     super.show();
     this._render();
   }
+
   _render() {
     const phone = this._phoneDetails;
     this._element.innerHTML = `
       <img
         data-element="large-image"
         class="phone"
-        src="${ phone.images[0] }"
+        src="${phone.images[0]}"
       >
       <button data-element="back-button">
         Back
@@ -40,18 +41,18 @@ export default class PhoneViewer extends Component {
       </button>
   
   
-      <h1>${ phone.name }</h1>
-      <p>${ phone.description }</p>
+      <h1>${phone.name}</h1>
+      <p>${phone.description}</p>
   
       <ul class="phone-thumbs">
-        ${ phone.images.map(imageUrl => `
+        ${phone.images.map(imageUrl => `
           <li>
             <img
               data-element="small-image"
-              src="${ imageUrl }"
+              src="${imageUrl}"
             >                
           </li>
-        `).join('') }
+        `).join('')}
       </ul>
     `;
   }
